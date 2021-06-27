@@ -7,7 +7,7 @@ A detailed documentation and a R package structure will be organized in this rep
 Hopefully, you will be able to produce graphics and tables for your map accuracy assessments:
 
 ### Alluvial Plot
-<div align="center"><img src="images/Alluvial_Plot.png" width="600" height="600" ></div>
+<div align="center"><img src="images/Alluvial_Plot.png" width="1200" height="800" ></div>
 
 ### Bootstrap Accuracy & Area Plots
 
