@@ -4,7 +4,7 @@ Bootmatp is a R framework for calculating uncertainty metrics from a crop map.
 We are now working on a paper to elaborate on our procedure and results.
 A detailed documentation and a R package structure will be organized in this repository.
 
-Hopefully, you will be able to produce graphics and tables for your map accuracy assessments:
+Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
 ### Alluvial Plot
 <div align="center"><img src="images/Alluvial_Plot.png"></div>
