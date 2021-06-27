@@ -16,7 +16,7 @@ Accuracy Table              |  Area Table
 ![](images/BootHist_Accuracy_1500.png)  |  ![](images/BootHist_Area_1500.png)
 
 
-As you increase **n** in bootstrap, the graphs converges to normal distribution. They grow just as plants!
+As you increase **n** in bootstrap, the crops with enough sample converges to normal distribution. They grow just as plants!
 <div align="center"><img src="images/BootHist_Accuracy_1500.gif"></div>
 
 ### Bootstrap Accuracy & Area Tables
