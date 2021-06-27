@@ -25,6 +25,6 @@ Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
 ![](images/BootTable_Accuracy_1500.png)  |  ![](images/BootTable_Area_1500.png)
 
-### Crop Accuracy Plot
+### Crop Area Adjustment Uncertainty Plot
 <div align="center"><img src="images/Tomato_Accuracy.png"></div>
 
