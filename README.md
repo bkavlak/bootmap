@@ -12,6 +12,10 @@ Hopefully, you will be able to produce graphics and tables for your map accuracy
 
 ### Bootstrap Accuracy & Area Tables
 
+Accuracy Table              |  Area Table
+:-------------------------:|:-------------------------:
+![](images/BootTable_Accuracy_1500.png)  |  ![](images/BootTable_Area_1500.png)
+
 ### Crop Accuracy Plot
 
 
