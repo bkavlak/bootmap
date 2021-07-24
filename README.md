@@ -28,7 +28,7 @@ Accuracy Table              |  Area Table
 ### Crop Area Adjustment Uncertainty Plot
 <div align="center"><img src="images/Tomato_Accuracy.png"></div>
 
-## OOP Plan
+## Object Oriented Programming Plan
 
 `bootmap` is going to be an object that stores the following:
 
