@@ -1,4 +1,4 @@
-# bootmap <img src='images/bootmap-15-hexagon.png' align="right" height="139" /></a>
+# bootmap <a href='https://github.com/bkavlak/bootmap/blob/main/functions/bootmap-hexagon.R'><img src='images/bootmap-15-hexagon.png' align="right" height="139" /></a>
 
 Bootmap is an R framework for calculating uncertainty metrics from a crop map.
 We are now working on a paper to elaborate on our procedure and results.
