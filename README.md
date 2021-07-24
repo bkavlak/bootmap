@@ -28,3 +28,31 @@ Accuracy Table              |  Area Table
 ### Crop Area Adjustment Uncertainty Plot
 <div align="center"><img src="images/Tomato_Accuracy.png"></div>
 
+## OOP Plan
+
+`bootmap` is going to be an object that stores the following:
+
+- A result map with one band as classification results
+- Sample vector data
+- Class integer and text values
+- Confusion matrix
+- Class area frame
+- Methods:
+	- extract_map_accuracy
+	- boot_sample
+	- boot_accuracy
+	- boot_stat
+	- boot_table
+	- calc_interval_frame
+	- calc_prod_accuracy
+	- calc_prod_matrix
+	- calc_user_accuracy
+	- calc_user_matrix
+	- cross_fold
+	- prepare_accuracy_table
+	- prepare_area_table
+	- boot_vis
+	- boot_table_vis
+	- prepare_accuracy_vis
+	- prepare_area_vis
+
