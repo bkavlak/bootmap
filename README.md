@@ -11,7 +11,7 @@ Hopefully, you will be able to create graphics and tables for your map accuracy 
 
 ### Bootstrap Accuracy & Area Plots
 
-Accuracy Table              |  Area Table
+Accuracy Plot              |  Area Plot
 :-------------------------:|:-------------------------:
 ![](images/BootHist_Accuracy_1500.png)  |  ![](images/BootHist_Area_1500.png)
 
