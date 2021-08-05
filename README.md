@@ -7,9 +7,14 @@ A detailed documentation and a R package structure will be organized in this rep
 Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
 ### Alluvial Plot
+
+This graph gives you an estimate on the confusion of the model when estimating their areas.
+
 <div align="center"><img src="images/Alluvial_Plot.png"></div>
 
 ### Bootstrap Accuracy & Area Plots
+
+These graphs displays the uncertainty of your model for each class and for each adjusted crop area.
 
 Accuracy Plot              |  Area Plot
 :-------------------------:|:-------------------------:
@@ -21,11 +26,16 @@ As you increase **n** in bootstrap, the crops with enough sample converges to no
 
 ### Bootstrap Accuracy & Area Tables
 
+The tables are a translation of graphs to another human-created language. 95% confidence is an estimate to give some advice for your uncertain life. 
+
 Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
 ![](images/BootTable_Accuracy_1500.png)  |  ![](images/BootTable_Area_1500.png)
 
 ### Crop Area Adjustment Uncertainty Plot
+
+This is a zoom to an accuracy plot of the Tomato class.
+
 <div align="center"><img src="images/Tomato_Accuracy.png"></div>
 
 ## Object Oriented Programming Plan
