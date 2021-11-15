@@ -30,8 +30,7 @@ exp_boot_iterator <- function(boot_list_name,
   if (type == "Area") {
     
     # Get Bootstrap Indices
-    vis_data <- readRDS(paste0(boot_list_source, "/", boot_list_name)) %>%
-      purrr::map(~ as.data.frame(t(as.data.frame(.x))))
+    vis_data <- readRDS(paste0(boot_list_source, "/", boot_list_name))
     vis_data <- vis_data[[exp_number]]
     
     # Prepare Area Frame for visualization

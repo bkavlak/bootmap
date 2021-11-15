@@ -1,4 +1,10 @@
-prepare_area_table <- function(area_frame){
+prepare_area_table <- function(area_list){
+  
+  # Merge list by rows
+  area_frame <- area_list %>%
+    as.data.frame() %>%
+    t() %>%
+    as.data.frame()
   
   # Get ClassId
   class_list <- area_frame %>%

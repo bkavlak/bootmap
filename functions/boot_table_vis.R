@@ -2,7 +2,7 @@ library(gt)
 library(glue)
 library(tidyverse)
 
-boot_table_vis <- function(acc_table,
+boot_table_vis <- function(table_data,
                            plot_name,
                            plot_source,
                            type = "Area", # or "Accuracy"
@@ -21,14 +21,14 @@ boot_table_vis <- function(acc_table,
   colnames(class_frame) <- c("ClassId", "ClassName")
   
   # Left Join with class_frame
-  acc_table %<>% dplyr::left_join(class_frame, by = "ClassId")
+  table_data %<>% dplyr::left_join(class_frame, by = "ClassId")
   
   # Filter Desired Classes
-  acc_table %<>% dplyr::filter(ClassId %in% class_list)
+  table_data %<>% dplyr::filter(ClassId %in% class_list)
   
   if(type == "Accuracy") {
     
-    acc_table %<>%
+    table_data %<>%
       dplyr::select(-ClassId) %>%
       gt::gt() %>%
       gt::tab_header(
@@ -59,12 +59,12 @@ boot_table_vis <- function(acc_table,
       )
     
     # Save plot
-    gt::gtsave(acc_table, paste0(plot_source, "/", plot_name))
+    gt::gtsave(table_data, paste0(plot_source, "/", plot_name))
     
     
   } else if (type == "Area") {
 
-    acc_table %<>%
+    table_data %<>%
       dplyr::select(-ClassId) %>%
       gt::gt() %>%
       gt::tab_header(
@@ -88,7 +88,7 @@ boot_table_vis <- function(acc_table,
       )
     
     # Save plot
-    gt::gtsave(acc_table, paste0(plot_source, "/", plot_name))
+    gt::gtsave(table_data, paste0(plot_source, "/", plot_name))
   }
   
 }

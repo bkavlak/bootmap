@@ -1,51 +1,42 @@
-# ABBREVIATIONS
-# RS  -> Raster Source
-# RSC -> Raster Scope
-# RD  -> Raster Destination
-# RPD -> Report Destination
-# UD  -> Update Destination
-# VD  -> Vector Destination
-# CD  -> CSV Destination
-# KD  -> KML Destination
-# RN  -> Raster Name
-# ON  -> Output Name
-# RL  -> Raster List
-# VL  -> Vector List
-# SN  -> Sort Number
-# TS  -> TKGM Source
-# HS  -> HGM Source
-# TN  -> TKGM Name
-# HN  -> HGM Name
-  
-ma_setup_folder <- function(root) {
-  
-  #' It sets up the program to root directory where all files are places.
-  #' 
-  #' @param root A string that defines the root directory
-
-  # Set directory to root
-  setwd(root)
+ma_setup_folder <- function() {
   
   # Define Vector Source & Name
-  vector_source <<- "/home/ziya/Desktop/PROCESS/TAT/2021/KUCUKMENDERES/SAMPLES"
-  vector_name <<- "SampleCT_KUCUKMENDERES_2021_v03.gpkg"
+  vector_source <<- "./Desktop/gitHub/common-files/Sample/Crop-Type/Turkey/2021/GPKG/"
+  vector_name <<- "SAMPLE_TURKEY_2021_v40.gpkg"
   
   # Define Extracted Pixel Directory & Name
-  pixel_source <<- "/home/ziya/Desktop/PROCESS/TAT/2021/KUCUKMENDERES/RAW_DATA"
-  pixel_name <<- "S2_TAT_20210527_Pixel_v02.csv"
+  pixel_source <<- "./Desktop/gitHub/doktaR/programs/map-accuracy/Data"
+  pixel_name <<- "TESTPIXELS_KONYA_P3_2021_v01.csv"
   
   # Define Map Output Directory & name
-  map_source <<- "/home/ziya/Desktop/PROCESS/TAT/2021/KUCUKMENDERES/MAP"
-  map_name <<- "MT_KUCUKMENDERES_P3_2021_TOMATO_v01.tif"
+  map_source <<- "./SATELLITE/RESULTS/CLASSIFICATION_RASTERS/2021"
+  map_name <<- "GTS_KONYA_P3_2021_SUNFLOWERSUGARBEET_v01.tif"
+  
+  # Bootstrap Data
+  bootdata_source <<- "./Desktop/gitHub/doktaR/programs/map-accuracy/Data"
+  boot_indices_name <<- "BOOTINDICES_KONYA_P3_2021_v01.rds"
+  boot_df_name <<- "BOOTDATAFRAME_KONYA_P3_2021_v01.rds"
+  boot_acc_tn <<- "BOOTTABLEACCURACY_KONYA_P3_2021_v01.png"
+  boot_area_tn <<- "BOOTTABLEAREA_KONYA_P3_2021_v01.png"
   
   # Define Plot Directory & Name
-  plot_source <<- "/home/ziya/Desktop/PROCESS/TAT/2021/KUCUKMENDERES/RAW_DATA"
-  plot_name <<- "GTS_CUKUROVA_P1_2021_DIVERSE_v01.png"
+  plot_source <<- "./Desktop/gitHub/doktaR/programs/map-accuracy/Data"
+  boot_acc_pn <<- "BOOTHISTACCURACY_KONYA_P3_2021_v01.png"
+  boot_area_pn <<- "BOOTHISTAREA_KONYA_P3_2021_v01.png"
   
   # Program Variables
-  response_col  <<- "ProcessId"
-  class_number  <<- 9
-  class_nums <<- c(13, 15, 18, 24, 32, 38, 41, 43, 98)
+  test_split_col <<- "TrainTestSplitP3"
+  response_col  <<- "ProcessIdP3"
+  class_list    <<- c(12, 13, 15, 17,
+                      18, 19, 21, 28,
+                      32, 41, 43, 52,
+                      62, 96, 97, 98,
+                      99)
+  area_list <<- c(1000, 1000, 1000, 1000,
+                  1000, 1000, 1000, 1000,
+                  1000, 1000, 1000, 1000,
+                  1000, 1000, 1000, 1000,
+                  1000)
   nd <<- 0
   
 }

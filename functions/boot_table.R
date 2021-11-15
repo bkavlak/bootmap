@@ -1,12 +1,12 @@
-boot_table <- function(conf_matrix_list,
+boot_table <- function(bag_list,
                        type = "Accuracy" # or "Area"
 ){
   
   if (type == "Accuracy"){
   
     # Prepare data
-    acc_frame_user <- conf_matrix_list %>% prepare_accuracy_table(type = "User")
-    acc_frame_prod <- conf_matrix_list %>% prepare_accuracy_table(type = "Producer")
+    acc_frame_user <- bag_list %>% prepare_accuracy_table(type = "User")
+    acc_frame_prod <- bag_list %>% prepare_accuracy_table(type = "Producer")
     
     # Summarise table
     acc_frame_user %<>%
@@ -32,7 +32,7 @@ boot_table <- function(conf_matrix_list,
   } else if (type == "Area"){
     
     # Prepare data
-    area_frame_user <- conf_matrix_list %>%
+    area_frame_user <- bag_list %>%
       prepare_area_table()
     
     # Summarise table
