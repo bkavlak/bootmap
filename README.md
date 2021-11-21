@@ -1,4 +1,4 @@
-# bootmap <a href='https://github.com/bkavlak/bootmap/blob/main/functions/bootmap-hexagon.R'><img src='images/bootmap-15-hexagon.png' align="right" height="139" /></a>
+# bootmap <a href='https://github.com/bkavlak/bootmap/blob/main/functions/bootmap-hexagon.R'><img src='visualizations/bootmap-15-hexagon.png' align="right" height="139" /></a>
 
 Bootmap is an R framework for calculating uncertainty metrics from a crop map.
 We are now working on a paper to elaborate on our procedure and results.
@@ -6,11 +6,6 @@ A detailed documentation and a R package structure will be organized in this rep
 
 Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
-### Alluvial Plot
-
-This graph gives you an estimate on the confusion of the model when estimating their areas.
-
-<div align="center"><img src="images/Alluvial_Plot.png"></div>
 
 ### Bootstrap Accuracy & Area Plots
 
@@ -18,11 +13,11 @@ These graphs displays the uncertainty of your model for each class and for each 
 
 Accuracy Plot              |  Area Plot
 :-------------------------:|:-------------------------:
-![](images/BootHist_Accuracy_1500.png)  |  ![](images/BootHist_Area_1500.png)
+![](visualizations/bootmap_accuracyhistogram_rep1500_allclasses.png)  |  ![](visualizations/bootmap_areahistogram_rep1500_allclasses.png)
 
 
 As you increase **n** in bootstrap, the crops with enough sample converges to normal distribution. They grow just as plants!
-<div align="center"><img src="images/BootHist_Accuracy_1500.gif"></div>
+<div align="center"><img src="visualizations/bootmap_accuracyhistogram_differentreps_tomato.png"></div>
 
 ### Bootstrap Accuracy & Area Tables
 
@@ -30,39 +25,10 @@ The tables are a translation of graphs to another human-created language. 95% co
 
 Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
-![](images/BootTable_Accuracy_1500.png)  |  ![](images/BootTable_Area_1500.png)
+![](visualizations/BootTable_Accuracy_1500.png)  |  ![](visualizations/bootmap_areatable_rep1500_allclasses.png)
 
 ### Crop Area Adjustment Uncertainty Plot
 
 This is a zoom to an accuracy plot of the Tomato class.
 
-<div align="center"><img src="images/Tomato_Accuracy.png"></div>
-
-## Object Oriented Programming Plan
-
-`bootmap` is going to be an object that stores the following:
-
-- A result map with one band as classification results
-- Sample vector data
-- Class integer and text values
-- Confusion matrix
-- Class area frame
-- Methods:
-	- extract_map_accuracy
-	- boot_sample
-	- boot_accuracy
-	- boot_stat
-	- boot_table
-	- calc_interval_frame
-	- calc_prod_accuracy
-	- calc_prod_matrix
-	- calc_user_accuracy
-	- calc_user_matrix
-	- cross_fold
-	- prepare_accuracy_table
-	- prepare_area_table
-	- boot_vis
-	- boot_table_vis
-	- prepare_accuracy_vis
-	- prepare_area_vis
-
+<div align="center"><img src="visualizations/bootmap_accuracyhistogram_rep1500_Tomato.png"></div>
