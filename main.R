@@ -17,15 +17,15 @@ library(webshot)
 library(gt)
 
 # Load Functions
-source(paste0(repo_source, "/bp_setup.R"))
+source(paste0(repo_source, "/setup.R"))
 source(paste0(repo_source, "/import_bootmap.R"))
 import_bootmap(repo_source)
 
 # Setup Folders
-bp_setup_folder()
+setup_folder()
 
 # Get data
-polygons_sf <- sf::st_read(paste0(repo_source, "/", polygon_name))
+polygons_sf <- sf::st_read(paste0(repo_source, "/data/", polygon_name))
 test_df <- polygons_sf %>%
   dplyr::select(all_of(c(polygonid_column, classid_column))) %>%
   sf::st_drop_geometry()
@@ -34,7 +34,7 @@ test_df <- polygons_sf %>%
 future::plan("multisession", gc = TRUE, workers = 15)
 
 # Get model output
-model_result_df <- readRDS(paste0(repo_source, "/", model_result))
+model_result_df <- readRDS(paste0(repo_source, "/data/", model_result))
 
 # PRODUCE INDICES ---------------------------------------------------------
 

@@ -1,4 +1,4 @@
-bp_setup_folder <- function() {
+setup_folder <- function() {
   
   # Repetition List
   repetition_list <<- c(50, 100, 200, 500, 1000, 1500)
