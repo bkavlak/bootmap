@@ -25,7 +25,7 @@ The tables are a translation of graphs to another human-created language. 95% co
 
 Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
-![](visualizations/BootTable_Accuracy_1500.png)  |  ![](visualizations/bootmap_areatable_rep1500_allclasses.png)
+![](visualizations/bootmap_accuracytable_rep1500_allclasses.png)  |  ![](visualizations/bootmap_areatable_rep1500_allclasses.png)
 
 ### Crop Area Adjustment Uncertainty Plot
 
