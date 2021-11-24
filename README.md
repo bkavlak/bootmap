@@ -4,6 +4,11 @@ Bootmap is an R framework for calculating uncertainty metrics from a crop map.
 We are now working on a paper to elaborate on our procedure and results.
 A detailed documentation and a R package structure will be organized in this repository.
 
+When you open `main.R` script in `Rstudio`, please press `ALT + O` to see sections in the code.
+Click the arrows at left to open and close the sections. 
+You can reproduce the study when you set repo directory correctly in `setup.R` script.
+Check below for abstraction steps in the codes.
+
 Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
 
@@ -27,8 +32,12 @@ Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
 ![](visualizations/bootmap_accuracytable_rep1500_allclasses.png)  |  ![](visualizations/bootmap_areatable_rep1500_allclasses.png)
 
-### Crop Area Adjustment Uncertainty Plot
+### Crop Uncertainty Plot
 
 This is a zoom to an accuracy plot of the Tomato class.
 
 <div align="center"><img src="visualizations/bootmap_accuracyhistogram_rep1500_Tomato.png"></div>
+
+
+### Abstraction Visalization
+[Visualizations to represent steps in the process will be added here.]
