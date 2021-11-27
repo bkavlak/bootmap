@@ -35,7 +35,7 @@ Accuracy Table              |  Area Table
 :-------------------------:|:-------------------------:
 ![](visualizations/bootmap_accuracytable_rep1500_allclasses.png)  |  ![](visualizations/bootmap_areatable_rep1500_allclasses.png)
 
-### Crop Uncertainty Plot
+### Class Area Adjustment Uncertainty Plot
 
 This is a zoom to an accuracy plot of the Tomato class.
 
