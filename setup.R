@@ -4,7 +4,7 @@ setup_folder <- function() {
   repetition_list <<- c(50, 100, 200, 500, 1000, 1500)
   
   # Define Model Source Directory
-  repo_source <<- "/media/Backup/PLANET/BETUL_TEZ/PAPER"
+  repo_source <<- "{ADD THE PATH TO THE REPO HERE}"
   polygon_name <<- "test_data.shp"
   model_result <<- "classification_result_ontest.rds"
   
@@ -25,28 +25,24 @@ setup_folder <- function() {
                   19, 21, 22, 23,
                   24))
   
-  # Visualization Lists
-  class_list <<- c("C11", "C12", "C13", "C14",
-                   "C15", "C16", "C17", "C18",
-                   "C19", "C21", "C22", "C23")
+  # Visualization Lists - Dropping Water Class for visual purposes
+  class_id <<- c(11, 12, 13, 14,
+                 15, 16, 17, 18,
+                 19, 21, 22, 23)
   
   class_decoder <<- c("Winter Cultivation", "Sunflower", "Capia Pepper", "Paddy",
                       "Tomato", "Watermelon", "Melon", "Corn",
                       "Orchard", "Alfalfa", "Impervious Surface",
                       "Vegetation")
   
-  class_color <<- c("Winter Cultivation" = "#FFFFFF",
-                   "Sunflower" = "#0044FF",
-                   "Capia Pepper" = "#4BFF00",
-                   "Paddy" = "#00FFF2",
-                   "Tomato" = "#FF0000",
-                   "Watermelon" = "#107717",
-                   "Melon" = "#B1BC00",
-                   "Corn" = "#F0FF00",
-                   "Orchard" = "#720E91",
-                   "Alfalfa" = "#46FFA1",
-                   "Impervious Surface" = "#FFFFFF",
-                   "Vegetation" = "#FFFFFF")
+  class_color <<- c("#FFFFFF", "#0044FF", "#4BFF00", "#00FFF2",
+                    "#FF0000", "#107717", "#B1BC00", "#F0FF00",
+                    "#720E91", "#46FFA1", "#FFFFFF", "#FFFFFF")
+  
+  # Visualization on Integer values is sometimes problematic.
+  # We are adding "C" to work properly on bootstrap visualizations
+  class_list <<- paste0("C", classid)
+  
   
   # Prepare Class DF
   class_df <<- data.frame(class_list, class_decoder, class_color,

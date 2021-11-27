@@ -85,8 +85,8 @@ for (rep_number in repetition_list){
         pred_column = prediction_column)) %>%
     furrr::future_map(
       ~ drop_non_square( # Convert Non square confusion matrices to NA
-                         # Controls are added here to prevent non square
-                         # confusion matrices, but may still result somehow.
+        # Controls are added here to prevent non square
+        # confusion matrices, but may still result somehow.
         conf_matrix = .x)
     )
   map_accuracy_bags <- map_accuracy_bags[!is.na(map_accuracy_bags)] # Drop NAs
@@ -109,7 +109,7 @@ for (rep_number in repetition_list){
            "/computed_lists/map_accuracy_bags_rep", rep_number, ".rds"))
   
   cat(paste0("Bootstrap with ", rep_number, " repetitions is started."), "\n")
-    
+  
   # Adjust area in bags
   map_area_bags <- map_accuracy_bags %>%
     furrr::future_map(
@@ -170,83 +170,13 @@ ggplot2::ggsave(
 
 # ALLUVIAL PLOT -----------------------------------------------------------
 
-test_conf_df <- caret::confusionMatrix(
-  data = as.factor(model_result_df[[prediction_column]]),
-  reference = as.factor(model_result_df[[classid_column]]),
-  positive = NULL,
-  dnn = c("Prediction","Reference"))
-test_conf_df <- test_conf_df$table %>% as.data.frame()
-
-# Change ID Names
-test_conf_df$Prediction %<>% as.character()
-test_conf_df$Prediction <- paste0("C", test_conf_df$Prediction)
-test_conf_df$Reference <- paste0("C", test_conf_df$Reference)
-test_conf_df$Prediction %<>%dplyr::recode("C11" = "Winter Cultivation",
-                                       "C12" = "Sunflower",
-                                       "C13" = "Capia Pepper",
-                                       "C14" = "Paddy",
-                                       "C15" = "Tomato",
-                                       "C16" = "Watermelon",
-                                       "C17" = "Melon",
-                                       "C18" = "Corn",
-                                       "C19" = "Sugarbeet",
-                                       "C21" = "Alfalfa",
-                                       "C22" = "Orchard",
-                                       "C23" = "Vegetation",
-                                       "C24" = "Impervious Surface")
-test_conf_df$Reference %<>% as.character()
-test_conf_df$Reference %<>% dplyr::recode("C11" = "Winter Cultivation ",
-                                      "C12" = "Sunflower ",
-                                      "C13" = "Capia Pepper ",
-                                      "C14" = "Paddy ",
-                                      "C15" = "Tomato ",
-                                      "C16" = "Watermelon ",
-                                      "C17" = "Melon ",
-                                      "C18" = "Corn ",
-                                      "C19" = "Sugarbeet ",
-                                      "C21" = "Alfalfa ",
-                                      "C22" = "Orchard ",
-                                      "C23" = "Vegetation ",
-                                      "C24" = "Impervious Surface ")
-
-# Group & Sum values
-test_conf_df %<>%
-  dplyr::group_by(Prediction, Reference) %>%
-  dplyr::summarise(value = sum(Freq)) %>%
-  as.data.frame()
-
-# From these flows we need to create a node data frame: it lists every entities involved in the flow
-nodes <- data.frame(name=c(as.character(test_conf_df$Reference),
-                           as.character(test_conf_df$Prediction)) %>%
-                      unique())
-
-# With networkD3, connection must be provided using Reference, not using real name like in the links dataframe.. So we need to reformat it.
-test_conf_df$IDsource=match(test_conf_df$Reference, nodes$name)-1 
-test_conf_df$IDtarget=match(test_conf_df$Prediction, nodes$name)-1
-test_conf_df$group=as.factor(test_conf_df$Reference)
-
-# prepare color scale
-ColourScal ='d3.scaleOrdinal() .domain([
-
-"Winter Cultivation ", "Sunflower ", "Capia Pepper ", "Paddy ",
-"Tomato ", "Watermelon ", "Melon ", "Corn ",
-"Sugarbeet ", "Alfalfa ", "Orchard ",
-"Vegetation ", "Impervious Surface "
-
-.range([
-
-"#FFFFFF", "#0044FF", "#4BFF00", "#00FFF2",
-"#FF0000", "#107717", "#B1BC00", "#F0FF00",
-"#720E91", "#46FFA1", "#FFFFFF",
-"#FFFFFF", "#FFFFFF"])'
-
-# Make the Network
-p <- networkD3::sankeyNetwork(Links = test_conf_df, Nodes = nodes,
-                              Source = "IDsource", Target = "IDtarget",
-                              Value = "value", NodeID = "name",
-                              sinksRight=TRUE, colourScale=ColourScal,
-                              LinkGroup = "group",
-                              nodeWidth=40, fontSize=16, nodePadding=5)
+p <- alluvial_plot(
+  test_df = model_result_df,
+  prediction_column = prediction_column,
+  reference_column = classid_column,
+  class_id = class_id,
+  class_decoder = class_decoder,
+  class_color = class_color)
 
 htmlwidgets::onRender(p, '
   function(el) { 
@@ -261,6 +191,11 @@ htmlwidgets::onRender(p, '
     })
   }
 ')
+
+# Save Plot
+networkD3::saveNetwork(p,
+                       file = paste0(repo_source,
+                                     "/visualizations/bootmap_alluvialplot_test_allclasses.html"))
 
 # BOOTSTRAP HISTOGRAM -----------------------------------------------------
 

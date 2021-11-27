@@ -6,6 +6,9 @@ A detailed documentation and a R package structure will be organized in this rep
 
 Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
+### Alluvial Plot of Confusion
+<div align="center"><img src="visualizations/bootmap_alluvialplot_testdata_allclasses.png"></div>
+
 
 ### Bootstrap Accuracy & Area Plots
 
@@ -31,4 +34,4 @@ Accuracy Table              |  Area Table
 
 This is a zoom to an accuracy plot of the Tomato class.
 
-<div align="center"><img src="visualizations/bootmap_accuracyhistogram_rep1500_Tomato.png"></div>
+<div align="center"><img src="visualizations/bootmap_areahistogram_rep1500_Tomato.png"></div>
