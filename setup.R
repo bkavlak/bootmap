@@ -4,7 +4,6 @@ setup_folder <- function() {
   repetition_list <<- c(50, 100, 200, 500, 1000, 1500)
   
   # Define Model Source Directory
-  repo_source <<- "{ADD THE PATH TO THE REPO HERE}"
   polygon_name <<- "test_data.shp"
   model_result <<- "classification_result_ontest.rds"
   
@@ -41,7 +40,7 @@ setup_folder <- function() {
   
   # Visualization on Integer values is sometimes problematic.
   # We are adding "C" to work properly on bootstrap visualizations
-  class_list <<- paste0("C", classid)
+  class_list <<- paste0("C", class_id)
   
   
   # Prepare Class DF

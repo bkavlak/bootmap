@@ -5,11 +5,11 @@ boot_vis_multiple <- function(
   type = "Area", # or "Accuracy"
   class_list = c("C11", "C12", "C13", "C14",
                  "C15", "C16", "C17", "C18",
-                 "C19", "C21", "C22", "C23", "C24"),
-  class_decoder = c("Soil", "Sunflower", "Pepper", "Rice",
+                 "C19", "C21", "C22", "C23"),
+  class_decoder = c("Winter Cultivation", "Sunflower", "Capia Pepper", "Paddy",
                     "Tomato", "Watermelon", "Melon", "Corn",
-                    "Sugarbeet", "Alfalfa", "Orchard",
-                    "Vegetation", "Road"),
+                    "Orchard", "Alfalfa", "Impervious Surface",
+                    "Vegetation"),
   fill_cols = c("Soil" = "#fb8807",
                 "Sunflower" = "#094aaa",
                 "Pepper" = "#f232ee",
@@ -18,11 +18,10 @@ boot_vis_multiple <- function(
                 "Watermelon" = "#21f429",
                 "Melon" = "#f8b70c",
                 "Corn" = "#f8e00d",
-                "Sugarbeet" = "#b460c5",
-                "Alfalfa" = "#1dd4ab",
                 "Orchard" = "#000000",
-                "Vegetation" = "#122c0d",
-                "Road" = "#917d7d"
+                "Alfalfa" = "#1dd4ab",
+                "Impervious Surface" = "#ffffff",
+                "Vegetation" = "#122c0d"
                 )){
   
   # Create Class Decoder Frame
@@ -34,7 +33,7 @@ boot_vis_multiple <- function(
   
   # Filter Desired Classes
   vis_data %<>% dplyr::filter(ClassId %in% class_list)
-    
+  
   # Create the Plot
   boot_plot <- ggplot(vis_data,
                       aes(x=!!dplyr::sym(type), fill=ClassName)) +

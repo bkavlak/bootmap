@@ -16,12 +16,11 @@ library(profvis)
 library(webshot)
 library(gt)
 
-# Load Functions
+# Setup Folder & Load Functions
+repo_source <<- here()
 source(paste0(repo_source, "/setup.R"))
 source(paste0(repo_source, "/import_bootmap.R"))
 import_bootmap(repo_source)
-
-# Setup Folders
 setup_folder()
 
 # Get data
@@ -31,7 +30,7 @@ test_df <- polygons_sf %>%
   sf::st_drop_geometry()
 
 # Plan multi-process
-future::plan("multisession", gc = TRUE, workers = 15)
+future::plan("multisession", gc = TRUE, workers = 5)
 
 # Get model output
 model_result_df <- readRDS(paste0(repo_source, "/data/", model_result))
@@ -179,7 +178,7 @@ p <- alluvial_plot(
   class_color = class_color)
 
 htmlwidgets::onRender(p, '
-  function(el) { 
+  function(el) {
     var cols_x = this.sankey.nodes().map(d => d.x).filter((v, i, a) => a.indexOf(v) === i);
     var labels = ["Reference", "Prediction"];
     cols_x.forEach((d, i) => {
