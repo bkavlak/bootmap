@@ -151,6 +151,16 @@ map_accuracy_df <- map_accuracy_bags_list %>%
   dplyr::filter(ClassId == "C15") %>%
   dplyr::mutate(ClassName := "Tomato")
 
+# Add "n = " to the Repetition Number
+map_accuracy_df %<>% 
+  mutate(RepetitionNumber = paste0("n = ", RepetitionNumber))
+map_accuracy_df$RepetitionNumber <- factor(
+  map_accuracy_df$RepetitionNumber,
+  levels = c(
+    "n = 50", "n = 100", "n = 200", "n = 500",
+    "n = 1000", "n = 1500")
+)
+
 # Create the Plot
 rep_plot <- ggplot(
   map_accuracy_df,
@@ -178,7 +188,8 @@ p <- alluvial_plot(
   reference_column = classid_column,
   class_id = class_id,
   class_decoder = class_decoder,
-  class_color = class_color)
+  class_color = class_color
+)
 
 htmlwidgets::onRender(p, '
   function(el) {
