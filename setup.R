@@ -31,8 +31,7 @@ setup_folder <- function() {
   
   class_decoder <<- c("Winter Cultivation", "Sunflower", "Capia Pepper", "Paddy",
                       "Tomato", "Watermelon", "Melon", "Corn",
-                      "Orchard", "Alfalfa", "Impervious Surface",
-                      "Vegetation")
+                      "Orchard", "Alfalfa", "Impervious Surface", "Vegetation")
   
   class_color <<- c("#FFFFFF", "#0044FF", "#4BFF00", "#00FFF2",
                     "#FF0000", "#107717", "#B1BC00", "#F0FF00",

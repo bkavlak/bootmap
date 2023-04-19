@@ -10,8 +10,7 @@ prepare_area_vis <- function(area_list){
   class_list <- area_frame %>%
     dplyr::slice(1) %>%
     unlist(use.names = FALSE)
-  # Convert Factor to Numeric
-  class_list <- as.numeric(levels(class_list))[class_list]
+  
   # Prepare Class Column Names
   class_cols <- paste0("C", class_list)
   
@@ -33,7 +32,7 @@ prepare_area_vis <- function(area_list){
                         names_to = "ClassId",
                         values_to = "Area")
   # Convert Area Factor to Numeric
-  area_frame$Area <- as.numeric(levels(area_frame$Area))[area_frame$Area]
+  area_frame$Area <- as.numeric(area_frame$Area)
   
   return(area_frame)
 }

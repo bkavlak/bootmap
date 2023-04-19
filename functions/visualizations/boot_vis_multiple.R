@@ -8,9 +8,8 @@ boot_vis_multiple <- function(
                  "C19", "C21", "C22", "C23"),
   class_decoder = c("Winter Cultivation", "Sunflower", "Capia Pepper", "Paddy",
                     "Tomato", "Watermelon", "Melon", "Corn",
-                    "Orchard", "Alfalfa", "Impervious Surface",
-                    "Vegetation"),
-  fill_cols = c("Soil" = "#fb8807",
+                    "Orchard", "Alfalfa", "Impervious Surface", "Vegetation"),
+  fill_cols = c("Winter Cultivation" = "#fb8807",
                 "Sunflower" = "#094aaa",
                 "Pepper" = "#f232ee",
                 "Rice" = "#31a1c4",
@@ -36,12 +35,13 @@ boot_vis_multiple <- function(
   
   # Create the Plot
   boot_plot <- ggplot(vis_data,
-                      aes(x=!!dplyr::sym(type), fill=ClassName)) +
+                      aes(x=!!dplyr::sym(type), fill=ClassId)) +
     geom_histogram(color="black", bins = 30) +
     coord_cartesian(ylim = c(0, 600)) +
     scale_fill_manual(values = fill_cols) +
     facet_wrap(. ~ ClassName) +
-    labs(fill = "Class Name")
+    theme(text = element_text(size = 22)) +
+    theme(legend.position = "none")
   
   # Save Plot
   ggplot2::ggsave(filename = paste0(plot_source, "/", plot_name),

@@ -15,6 +15,7 @@ library(extrafont)
 library(profvis)
 library(webshot)
 library(gt)
+library(here)
 
 # Setup Folder & Load Functions
 repo_source <<- here()
@@ -138,7 +139,7 @@ for (i in seq_along(repetition_list)) {
   # Prepare Data to Visualization
   rep_accuracy_data <- map_accuracy_bags %>%
     prepare_accuracy_vis()
-  # Add Repetition Indiator
+  # Add Repetition Indicator
   rep_accuracy_data$RepetitionNumber <- repetition_list[[i]]
   # Add Data to Accuracy List
   map_accuracy_bags_list[[i]] <- rep_accuracy_data
@@ -157,7 +158,9 @@ rep_plot <- ggplot(
   theme(legend.title = element_blank()) +
   geom_histogram(color="black", bins = 30) +
   scale_fill_manual(values = c("Tomato"="#FF0000")) +
-  facet_wrap(. ~ RepetitionNumber)
+  facet_wrap(. ~ RepetitionNumber) +
+  theme(text = element_text(size = 22)) +
+  theme(legend.position = "none")
 
 # Save Plot
 ggplot2::ggsave(
