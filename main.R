@@ -191,24 +191,18 @@ p <- alluvial_plot(
   class_color = class_color
 )
 
-htmlwidgets::onRender(p, '
-  function(el) {
-    var cols_x = this.sankey.nodes().map(d => d.x).filter((v, i, a) => a.indexOf(v) === i);
-    var labels = ["Reference", "Prediction"];
-    cols_x.forEach((d, i) => {
-      d3.select(el).select("svg")
-        .append("text")
-        .attr("x", d)
-        .attr("y", 12)
-        .text(labels[i]);
-    })
-  }
-')
+render_function_str <- build_htmlrender_str(
+  class_decoder = class_decoder,
+  class_color = class_color
+)
+p <- htmlwidgets::onRender(p, eval(render_function_str))
+
 
 # Save Plot
-networkD3::saveNetwork(p,
-                       file = paste0(repo_source,
-                                     "/visualizations/bootmap_alluvialplot_test_allclasses.html"))
+htmlwidgets::saveWidget(
+  p, file = paste0(repo_source,
+                   "/visualizations/bootmap_alluvialplot_test_allclasses.html")
+)
 
 # BOOTSTRAP HISTOGRAM -----------------------------------------------------
 

@@ -18,12 +18,14 @@ alluvial_plot <- function(
                   "#FF0000", "#107717", "#B1BC00", "#F0FF00",
                   "#720E91", "#46FFA1", "#FFFFFF", "#FFFFFF",
                   "#FFFFFF")){
+  # Convert whitespace to undersocre
+  class_decoder <- gsub(" ", "_", class_decoder)
   
   # Prepare Class DF
   class_df <- data.frame(class_id, class_decoder, class_color,
                          stringsAsFactors = FALSE)
   class_df$class_reference_name <- class_decoder
-  class_df$class_prediction_name <- paste0(class_decoder, " ") # adding a space
+  class_df$class_prediction_name <- paste0(class_decoder, "_") # adding an undersocre
                                                                # here to differentiate.
   
   # Filter classes from test_df
@@ -67,12 +69,14 @@ alluvial_plot <- function(
   nodes <- data.frame(name=c(as.character(conf_df$ReferenceName),
                              as.character(conf_df$PredictionName)) %>%
                         unique())
+  nodes <- data.frame(name=c(class_decoder, paste0(class_decoder, "_")))
+  nodes$group <- c(class_decoder, class_decoder)
   
   # With networkD3, connection must be provided using Reference,
   # not using real name like in the links dataframe.. So we need to reformat it.
   conf_df$IDsource=match(conf_df$ReferenceName, nodes$name)-1 
   conf_df$IDtarget=match(conf_df$PredictionName, nodes$name)-1
-  conf_df$group=as.factor(conf_df$ReferenceName)
+  conf_df$group=factor(conf_df$ReferenceName)
   
   # Prepare Class Names as String
   reference_name_str <- paste0('"', class_df$class_reference_name, '"')
@@ -85,10 +89,8 @@ alluvial_plot <- function(
   
   # prepare color scale
   ColourScal <- paste0('d3.scaleOrdinal().domain([',
-                       reference_name_str, ",",
-                       prediction_name_str,
+                       reference_name_str,
                        ']).range([',
-                       class_color_str, ",",
                        class_color_str, '])')
   
   # Make the Network
@@ -97,8 +99,8 @@ alluvial_plot <- function(
     Source = "IDsource", Target = "IDtarget",
     Value = "value", NodeID = "name",
     sinksRight=TRUE, colourScale=ColourScal,
-    LinkGroup = "group",
-    nodeWidth=40, fontSize=16, nodePadding=5)
+    LinkGroup = "group", NodeGroup = "group",
+    nodeWidth=40, fontSize=0, nodePadding=5)
   
   return(p)
   
