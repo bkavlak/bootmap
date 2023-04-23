@@ -39,4 +39,4 @@ Accuracy Table              |  Area Table
 
 This is a zoom to an accuracy plot of the Tomato class.
 
-<div align="center"><img src="visualizations/bootmap_areahistogram_rep1500_Tomato.png"></div>
+<div align="center"><img src="visualizations/single-class/bootmap_areahistogram_rep1500_Tomato.png"></div>
