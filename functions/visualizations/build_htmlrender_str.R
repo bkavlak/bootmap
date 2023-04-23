@@ -1,6 +1,6 @@
 build_htmlrender_str <- function(class_decoder, class_color){
   cx_position <- 600
-  cy_position <- 10
+  cy_position <- 80
   
   function_str <- '
   function(el, x, data) {

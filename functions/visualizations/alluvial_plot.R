@@ -69,8 +69,8 @@ alluvial_plot <- function(
   nodes <- data.frame(name=c(as.character(conf_df$ReferenceName),
                              as.character(conf_df$PredictionName)) %>%
                         unique())
-  nodes <- data.frame(name=c(class_decoder, paste0(class_decoder, "_")))
-  nodes$group <- c(class_decoder, class_decoder)
+  nodes$group <- c(unique(as.character(conf_df$ReferenceName)),
+                   unique(as.character(conf_df$ReferenceName)))
   
   # With networkD3, connection must be provided using Reference,
   # not using real name like in the links dataframe.. So we need to reformat it.

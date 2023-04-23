@@ -26,6 +26,9 @@ boot_vis_table <- function(
   # Filter Desired Classes
   table_data %<>% dplyr::filter(ClassId %in% class_list)
   
+  # Order classes alphabetically
+  table_data %<>% dplyr::arrange(ClassName)
+  
   if(type == "Accuracy") {
     
     table_vis <- table_data %>%

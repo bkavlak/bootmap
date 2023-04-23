@@ -192,8 +192,8 @@ p <- alluvial_plot(
 )
 
 render_function_str <- build_htmlrender_str(
-  class_decoder = class_decoder,
-  class_color = class_color
+  class_decoder = color_df$class_decoder,
+  class_color = color_df$class_color
 )
 p <- htmlwidgets::onRender(p, eval(render_function_str))
 

@@ -33,9 +33,9 @@ setup_folder <- function() {
                       "Tomato", "Watermelon", "Melon", "Corn",
                       "Orchard", "Alfalfa", "Impervious Surface", "Vegetation")
   
-  class_color <<- c("#FFFFFF", "#0044FF", "#4BFF00", "#00FFF2",
+  class_color <<- c("#97a1a6", "#0044FF", "#4BFF00", "#00FFF2",
                     "#FF0000", "#107717", "#B1BC00", "#F0FF00",
-                    "#720E91", "#46FFA1", "#FFFFFF", "#FFFFFF")
+                    "#720E91", "#46FFA1", "#edd0a4", "#96b3a3")
   
   # Visualization on Integer values is sometimes problematic.
   # We are adding "C" to work properly on bootstrap visualizations
@@ -45,6 +45,10 @@ setup_folder <- function() {
   # Prepare Class DF
   class_df <<- data.frame(class_list, class_decoder, class_color,
                           stringsAsFactors = FALSE)
+  
+  # Prepare Color DF
+  color_df <- data.frame(class_decoder, class_color)
+  color_df <<- dplyr::arrange(color_df, class_decoder)
   
   
 }
