@@ -12,7 +12,7 @@ Check below for abstraction steps in the codes.
 Hopefully, you will be able to create graphics and tables for your map accuracy assessments:
 
 ### Alluvial Plot of the Confusion
-<div align="center"><img src="visualizations/bootmap_alluvialplot_testdata_allclasses.jpg"></div>
+<div align="center"><img src="visualizations/bootmap_alluvialplot_testdata_allclasses.png"></div>
 
 
 ### Bootstrap Accuracy & Area Plots
