@@ -2,7 +2,6 @@
 
 Bootmap is an R framework for calculating uncertainty metrics from a crop map.
 We are now working on a paper to elaborate on our procedure and results.
-A detailed documentation and a R package structure will be organized in this repository.
 
 Tested with ```r-version=4.2.3```
 
