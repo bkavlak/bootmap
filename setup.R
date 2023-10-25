@@ -25,17 +25,17 @@ setup_folder <- function() {
                   24))
   
   # Visualization Lists - Dropping Water Class for visual purposes
-  class_id <<- c(11, 12, 13, 14,
-                 15, 16, 17, 18,
-                 19, 21, 22, 23)
+  class_id <<- c(12, 13, 14,
+                 15, 16, 17,
+                 18, 19, 21)
   
-  class_decoder <<- c("Winter Cultivation", "Sunflower", "Capia Pepper", "Paddy",
-                      "Tomato", "Watermelon", "Melon", "Corn",
-                      "Orchard", "Alfalfa", "Impervious Surface", "Vegetation")
+  class_decoder <<- c("Sunflower", "Capia Pepper", "Paddy",
+                      "Tomato", "Watermelon", "Melon",
+                      "Corn", "Orchard", "Alfalfa")
   
-  class_color <<- c("#97a1a6", "#0044FF", "#4BFF00", "#00FFF2",
-                    "#FF0000", "#107717", "#B1BC00", "#F0FF00",
-                    "#720E91", "#46FFA1", "#edd0a4", "#96b3a3")
+  class_color <<- c("#0044FF", "#4BFF00", "#00FFF2",
+                    "#FF0000", "#107717", "#B1BC00",
+                    "#F0FF00", "#720E91", "#46FFA1")
   
   # Visualization on Integer values is sometimes problematic.
   # We are adding "C" to work properly on bootstrap visualizations

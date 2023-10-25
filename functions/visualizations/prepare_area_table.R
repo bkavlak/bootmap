@@ -30,7 +30,7 @@ prepare_area_table <- function(area_list){
     tidyr::pivot_longer(cols = all_of(class_cols),
                         names_to = "ClassId",
                         values_to = "Area")
-  area_frame$Area %<>% as.numeric()
+  area_frame$Area %<>% as.character() %<>% as.numeric()
   
   return(area_frame)
 }

@@ -32,7 +32,7 @@ prepare_area_vis <- function(area_list){
                         names_to = "ClassId",
                         values_to = "Area")
   # Convert Area Factor to Numeric
-  area_frame$Area <- as.numeric(area_frame$Area)
-  
+  area_frame$Area %<>% as.character() %<>% as.numeric()
+
   return(area_frame)
 }

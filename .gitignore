@@ -2,3 +2,5 @@
 functions/.Rhistory
 .Rproj.user
 .DS_Store
+**/*.js
+**/LICENSE
